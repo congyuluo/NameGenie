@@ -1,6 +1,6 @@
 Oracle: Java Code Conventions (Chapter 9)
 Classes
-•	Naming Convention: Use nouns in MixedCase (also known as Upper Camel Case), capitalizing the first letter of each internal word.
+•	Naming Convention: Use nouns in CapCase (also known as Upper Camel Case), capitalizing the first letter of each internal word.
 •	Guidelines:
 •	Keep class names simple and descriptive.
 •	Use whole words and avoid acronyms unless the acronym is more recognized than the full term (e.g., URL, HTML).
@@ -9,11 +9,11 @@ Interfaces
 •	Guidelines:
 •	Name interfaces with nouns or adjectives that describe their behavior.
 Methods
-•	Naming Convention: Use verbs in mixedCase, starting with a lowercase letter, and capitalize the first letter of each internal word.
+•	Naming Convention: Use verbs in camelCase, starting with a lowercase letter, and capitalize the first letter of each internal word.
 •	Guidelines:
 •	Method names should clearly indicate their action.
 Variables
-•	Naming Convention: Use mixedCase with a lowercase first letter. Internal words start with capital letters.
+•	Naming Convention: Use camelCase with a lowercase first letter. Internal words start with capital letters.
 •	Guidelines:
 •	Names should be short yet meaningful and mnemonic to indicate the intent of their use.
 •	Avoid one-character variable names, except for temporary variables often used in loops or simple iterations.
