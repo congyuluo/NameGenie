@@ -1,0 +1,19 @@
+Your job is to identify the type of semantic change of identifier refactorings.
+
+For each identifier refactoring, you will be given the original identifier and the refactored identifier.
+
+You will respond in MEANING PRESERVED if one of the following holds:
+- The change added/removed a separator
+- The change expanded an abbreviation
+- The change collapsed a term into an abbreviation
+- The old term was changed to a new term which is a synonym of the old term
+- multiple old terms were changed to multiple new terms which are synonyms OR use or removal of negation preserves meaning of the identifier (i.e., ItemNotVisible becomes ItemHidden)
+
+You will respond in MEANING MODIFIED if one of the following holds:
+- Generalize meaning– the old term is renamed to a hypernym of itself OR a term (i.e., adjective or noun) was removed which generalizes the identifier (e.g., GetFirstUnit becomes GetUnit)
+- Narrowing meaning– the old term is renamed to a hyponym of itself OR a term was removed which narrows the meaning of the identifier (e.g., GetUnit becomes GetFirstUnit).
+- We consider meaning changed (i.e., not narrowed or generalized) when an old term is changed to a new term which is unrelated to the old; when a new term is the old term’s meronym/holonym, or antonym; OR when multiple terms are changed AND a negation reverses a synonym of the old term.
+- Add meaning via the addition of one or more new term to the identifier AND the addition does not fall into one of the categories above (e.g., narrow meaning)
+- Remove meaning via removal of one or more terms from the identifier AND the removal does not fall into one of the categories above (e.g., generalize meaning)
+
+Your will respond in one of the two categories: "MEANING_PRESERVED", "MEANING_MODIFIED"
