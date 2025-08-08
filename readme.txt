@@ -1,4 +1,4 @@
-Welcome to the GenRefactor reproducible package. This package contains the programs used to generate the results in the
+Welcome to the NameGenie reproducible package. This package contains the programs used to generate the results in the
 paper. Please make sure you have the following requirements, which was the environment which we performed tests in:
 - Apple Silicon powered Mac computer running macOS 12.6
 - Python 3.9
@@ -46,7 +46,7 @@ wheel                   0.41.2
 Do the following configurations in common.py:
 
 After all of the prerequisites are met, run the following color calibrations on your monitor using OSX's digital color
-meter, and fill it in the file. This is because GenRefactor interacts with InteliJ's renaming functionalities through
+meter, and fill it in the file. This is because NameGenie interacts with InteliJ's renaming functionalities through
 GUI. Make sure to test the colors of the following elements on your InteliJ IDE, otherwise it will not work:
 
 - (color_1):
@@ -76,7 +76,7 @@ Open a project using IntelliJ, and wait for the IDE to finish indexing. Make sur
 code as indicated by IntelliJ.
 
 Place IntelliJ window on your display #1 (if you have multiple displays). Scale the window below 350*350 pixels. Put it
-in the top left corner of the screen. Place terminal window, or IDE window for GenRefactor on the right side.
+in the top left corner of the screen. Place terminal window, or IDE window for NameGenie on the right side.
 
 - Configure your own openai API key in the file. (API_KEY)
 - Configure the root directory you would like to refactor in the file. (refactoring_directory)
@@ -84,13 +84,13 @@ in the top left corner of the screen. Place terminal window, or IDE window for G
 (sampling_ratio)
 - Use the pre_test.py to test the parsing and sampling ratio of the code.
 
-Run GenRefactor with running main.py (Please use the included SampleProject to test the tool).
+Run NameGenie with running main.py (Please use the included SampleProject to test the tool).
 
 During running the tool, if the tool encounters problems, adjust the parameters in the code accordingly. The tool is to
 automatically stop if there is a problem. If the tool stops, manually fix the problem in the IDE, and continue to run by
-entering something in the terminal window, which GenRefactor takes over again.
+entering something in the terminal window, which NameGenie takes over again.
 
-After running, GenRefactor shall exit with zero exit code. "logs" directory should be generated, and log.txt contains
+After running, NameGenie shall exit with zero exit code. "logs" directory should be generated, and log.txt contains
 the resulting refactorings.
 
 We apologize as the current version of the tool is extremely difficult to operate, and we are working on adapting this
