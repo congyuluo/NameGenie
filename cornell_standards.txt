@@ -1,0 +1,46 @@
+Cornell Java Coding Conventions Identifier Naming Guidelines
+
+Classes
+- Naming Convention: Use nouns (or noun phrases) in CapCase (Upper Camel Case), capitalizing the first letter of each internal word. No underscores.
+- Guidelines:
+  - Class names should be noun or noun phrases describing what the class is.
+
+Interfaces
+- Naming Convention: Follow the same capitalization rules as class names (CapCase / Upper Camel Case). No underscores.
+- Guidelines:
+  - Interface names are generally noun or noun phrases.
+
+Methods
+- Naming Convention: Use camelCase starting with a lowercase letter; capitalize the first letter of each internal word. No underscores.
+- Guidelines:
+  - Procedures (void methods): name as a verb phrase (a command describing the action).
+    - Example: setTitle(...)
+  - Functions (methods that return a value): name as a noun phrase describing the value produced.
+    - Example: areaOfTriangle(...)
+  - Getter convention: a function returning the value of a field often uses the field name prefixed with “get”.
+    - Example: getTitle()
+    - Note: Some style opinions differ; the name "title" could also be used.
+  - Boolean-returning functions: often begin with “is” to describe what the value means.
+    - Example: isEquilateralTriangle(...)
+
+Variables
+- Naming Convention: Use camelCase starting with a lowercase letter; capitalize internal words. No underscores.
+- Guidelines:
+  - Names should give the reader some hint about what the variable is used for.
+  - Avoid using irrelevant names (e.g., friends or flowers).
+  - Refrain from vague names like counter, var, or data; use a more concrete name.
+  - Balance descriptiveness vs. length:
+    - Parameter names: may be short (even one letter) because their meanings are given in the method specification and method bodies are usually short.
+    - Local variable names: may be short if declared close to first use and their meaning is obvious from nearby code/comments.
+    - Field and class (static) variable names: should generally be longer and mnemonic because their declarations may be far from their uses.
+
+Constants
+- Naming Convention: Use ALL_UPPERCASE with words separated by underscores.
+- Guidelines:
+  - Constants should have the keyword final, and they are usually static.
+  - Example: public static final double SPEED_OF_LIGHT = 299792458; // in m/s
+
+Packages
+- Naming Convention: Use all lowercase.
+- Guidelines:
+  - Package names are usually all lowercase and consist of nouns.
