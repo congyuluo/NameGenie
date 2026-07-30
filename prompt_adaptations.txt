@@ -1,0 +1,42 @@
+NAMEGENIE PROMPT ADAPTATIONS
+================================================================================
+
+Oracle-derived baseline: oracle_standards.txt
+
+ADDED CONDITIONS, IN PROMPT ORDER
+--------------------------------------------------------------------------------
+
+1. "Refactor the code segment according to the following standards."
+
+2. "Do not add or remove any code, only modify variable, function, and class
+   names."
+
+3. "Keep original indentation"
+
+4. "Only response needed is source code without any additions."
+
+5. "The response will be pieced into larger program, do not contain any non-java
+   response."
+
+6. "Do not generate additional constructors for class definitions."
+
+7. "DO NOT add unnecessary words to single word names just to follow camelcase."
+
+8. "Do not change all upper case names into camel case unless you are certain
+   that the variable is not a constant."
+
+9. "Change overly short names to meaningful names."
+
+10. "Do not change non-english names."
+
+11. "ONLY MAKE CHANGES YOU ARE SURE TO BE CORRECT."
+
+12. "If the code already follows this coding convention, say 'the provided code
+    already follows convention'."
+
+RETRY FEEDBACK STRINGS
+--------------------------------------------------------------------------------
+
+1. "Previous response could not be parsed."
+
+2. "Previous response's AST did not match with original segment: {error}."
