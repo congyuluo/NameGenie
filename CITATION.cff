@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use NameGenie, please cite the archived replication package."
+title: "NameGenie"
+type: software
+authors:
+  - family-names: "Luo"
+    given-names: "Congyu"
+  - family-names: "Huq"
+    given-names: "Syed Fatiul"
+  - family-names: "Schimmer"
+    given-names: "Tobias"
+  - family-names: "Krone-Martins"
+    given-names: "Alberto"
+  - family-names: "Malek"
+    given-names: "Sam"
+repository-code: "https://github.com/congyuluo/NameGenie"
+license: MIT
