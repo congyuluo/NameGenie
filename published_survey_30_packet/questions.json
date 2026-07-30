@@ -1,0 +1,2053 @@
+[
+  {
+    "question_id": "Q01",
+    "sample_id": "001",
+    "case": "SoundcloudStreamLinkHandlerFactory",
+    "source_path": "NewPipeExtractor/extractor/src/main/java/org/schabi/newpipe/extractor/services/soundcloud/linkHandler/SoundcloudStreamLinkHandlerFactory.java",
+    "purpose": "This method constructs a SoundCloud track URL from an identifier and asks the SoundCloud helper to resolve it through the embed player. It converts any resolution failure into a parsing exception for the caller.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "@Override\n    public String getUrl(final String id) throws ParsingException, UnsupportedOperationException {\n        try {\n            return SoundcloudParsingHelper.resolveUrlWithEmbedPlayer(\n                    \"https://api.soundcloud.com/tracks/\" + id);\n        } catch (final Exception e) {\n            throw new ParsingException(e.getMessage(), e);\n        }\n    }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "id"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "id",
+            "replacement": "s"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "id",
+            "replacement": "key"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "id",
+            "replacement": "trackId"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q01.png"
+  },
+  {
+    "question_id": "Q02",
+    "sample_id": "002",
+    "case": "StrandSort",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/sorts/StrandSort.java",
+    "purpose": "This method implements strand sort by repeatedly extracting an ordered subsequence from the input list. Each extracted subsequence is merged into the accumulated sorted output until the input is empty.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "private static <T extends Comparable<? super T>> List<T> strandSort(List<T> list) {\n        if (list.size() <= 1) {\n            return list;\n        }\n\n        List<T> result = new ArrayList<>();\n        while (!list.isEmpty()) {\n            final List<T> sorted = new ArrayList<>();\n            sorted.add(list.removeFirst());\n            for (int i = 0; i < list.size();) {\n                if (sorted.getLast().compareTo(list.get(i)) <= 0) {\n                    sorted.add(list.remove(i));\n                } else {\n                    i++;\n                }\n            }\n            result = merge(result, sorted);\n        }\n        return result;\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "result",
+      "sorted",
+      "i"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "result",
+            "replacement": "ts"
+          },
+          {
+            "original": "sorted",
+            "replacement": "add"
+          },
+          {
+            "original": "i",
+            "replacement": "i",
+            "note": "unchanged"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "result",
+            "replacement": "s"
+          },
+          {
+            "original": "sorted",
+            "replacement": "result"
+          },
+          {
+            "original": "i",
+            "replacement": "i",
+            "note": "unchanged"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "result",
+            "replacement": "resultList"
+          },
+          {
+            "original": "sorted",
+            "replacement": "sortedList"
+          },
+          {
+            "original": "i",
+            "replacement": "index"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q02.png"
+  },
+  {
+    "question_id": "Q03",
+    "sample_id": "003",
+    "case": "FFmpegAudioFactory",
+    "source_path": "DJL/extensions/audio/src/main/java/ai/djl/audio/FFmpegAudioFactory.java",
+    "purpose": "This method decodes audio from an input stream with an FFmpeg frame grabber. It configures and starts the grabber, collects the samples, and returns an audio object with its rate and channel count.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Override\n    public Audio fromInputStream(InputStream is) throws IOException {\n        try (FFmpegFrameGrabber grabber = new FFmpegFrameGrabber(is)) {\n            applyConfig(grabber);\n            grabber.start();\n            float[] floats = grab(grabber);\n            return new Audio(floats, grabber.getSampleRate(), grabber.getAudioChannels());\n        } catch (FrameGrabber.Exception e) {\n            throw new IOException(\"Unsupported Audio file\", e);\n        }\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "is",
+      "floats"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "is",
+            "replacement": "input"
+          },
+          {
+            "original": "floats",
+            "replacement": "result"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "is",
+            "replacement": "inputStream"
+          },
+          {
+            "original": "floats",
+            "replacement": "audioData"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "is",
+            "replacement": "grabber1"
+          },
+          {
+            "original": "floats",
+            "replacement": "audio"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      }
+    ],
+    "image_file": "Q03.png"
+  },
+  {
+    "question_id": "Q04",
+    "sample_id": "004",
+    "case": "PagedView",
+    "source_path": "lawnchair/src/com/android/launcher3/PagedView.java",
+    "purpose": "This code locates the neighboring page closest to the current page in a requested navigation direction. When a neighbor exists, it snaps to that page, transfers focus to it, and reports success.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "int currentPage = getNextPage();\n        int closestNeighbourIndex = -1;\n        int closestNeighbourDistance = Integer.MAX_VALUE;\n        // Find the closest neighbour page\n        for (int neighbourPageIndex : getNeighbourPageIndices(direction)) {\n            int distance = Math.abs(neighbourPageIndex - currentPage);\n            if (closestNeighbourDistance > distance) {\n                closestNeighbourDistance = distance;\n                closestNeighbourIndex = neighbourPageIndex;\n            }\n        }\n        if (closestNeighbourIndex != -1) {\n            View page = getPageAt(closestNeighbourIndex);\n            snapToPage(closestNeighbourIndex);\n            page.requestFocus(direction);\n            return true;\n        }\n\n        return false;\n    }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "page"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "page",
+            "replacement": "v"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "page",
+            "replacement": "pageAt"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "page",
+            "replacement": "pageIndex"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      }
+    ],
+    "image_file": "Q04.png"
+  },
+  {
+    "question_id": "Q05",
+    "sample_id": "005",
+    "case": "InorderTraversal",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/datastructures/trees/InorderTraversal.java",
+    "purpose": "This method performs a recursive inorder traversal of a binary tree. It visits the left subtree, records the current node's value, and then visits the right subtree.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "private static void recursiveInorder(BinaryTree.Node root, List<Integer> result) {\n        if (root == null) {\n            return;\n        }\n        recursiveInorder(root.left, result);\n        result.add(root.data);\n        recursiveInorder(root.right, result);\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "root",
+      "result"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "root",
+            "replacement": "aVoid"
+          },
+          {
+            "original": "result",
+            "replacement": "aVoid1"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "root",
+            "replacement": "node"
+          },
+          {
+            "original": "result",
+            "replacement": "list"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "root",
+            "replacement": "rootNode"
+          },
+          {
+            "original": "result",
+            "replacement": "resultList"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q05.png"
+  },
+  {
+    "question_id": "Q06",
+    "sample_id": "006",
+    "case": "RingBufferTest",
+    "source_path": "disruptor/src/test/java/com/lmax/disruptor/RingBufferTest.java",
+    "purpose": "This unit test verifies that publishing a zero-sized batch with a three-argument event translator is rejected. It also checks that the ring buffer remains empty after the failed operation.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "@Test\n    public void shouldNotTryPublishEventsThreeArgWhenBatchSizeIs0() throws Exception\n    {\n        assertThrows(IllegalArgumentException.class, () ->\n        {\n            RingBuffer<Object[]> ringBuffer = RingBuffer.createSingleProducer(new ArrayFactory(1), 4);\n            EventTranslatorThreeArg<Object[], String, String, String> translator = new ThreeArgEventTranslator();\n\n            try\n            {\n                ringBuffer.tryPublishEvents(\n                        translator, 1, 0, new String[]{\"Foo\", \"Foo\"},\n                        new String[]{\"Bar\", \"Bar\"}, new String[]{\"Baz\", \"Baz\"});\n            }\n            finally\n            {\n                assertEmptyRingBuffer(ringBuffer);\n            }\n        });\n    }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "translator"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "translator",
+            "replacement": "eventTranslator"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "translator",
+            "replacement": "twoArgTranslator"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "translator",
+            "replacement": "threeArgEventTranslator"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q06.png"
+  },
+  {
+    "question_id": "Q07",
+    "sample_id": "007",
+    "case": "CalculateAverage_rprabhu",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_rprabhu.java",
+    "purpose": "This method buffers incoming text lines into fixed-size work batches. Once the batch reaches the configured threshold, it submits the batch to an executor and starts collecting a new one.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "void push(String line) {\n            // System.out.println(\"adding: \" + line);\n            list.add(line);\n            if (list.size() >= TASK_CHUNK) {\n                executor.submit(new TaskExecutor(list));\n                list = new ArrayList<>(TASK_CHUNK);\n            }\n        }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "executor",
+      "list",
+      "line"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "executor",
+            "replacement": "submitted"
+          },
+          {
+            "original": "list",
+            "replacement": "size"
+          },
+          {
+            "original": "line",
+            "replacement": "line",
+            "note": "unchanged"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "executor",
+            "replacement": "executorService"
+          },
+          {
+            "original": "list",
+            "replacement": "taskList"
+          },
+          {
+            "original": "line",
+            "replacement": "task"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "executor",
+            "replacement": "task"
+          },
+          {
+            "original": "list",
+            "replacement": "result"
+          },
+          {
+            "original": "line",
+            "replacement": "line",
+            "note": "unchanged"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q07.png"
+  },
+  {
+    "question_id": "Q08",
+    "sample_id": "008",
+    "case": "TokenFilter",
+    "source_path": "alist-tvbox/src/main/java/cn/har01d/alist_tvbox/auth/TokenFilter.java",
+    "purpose": "This method retrieves an access credential from an HTTP request. It first checks the Authorization header and falls back to the X-ACCESS-TOKEN request parameter when necessary.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "private String getToken(HttpServletRequest request) {\n        var token = request.getHeader(\"Authorization\");\n        if (token == null || token.isEmpty()) {\n            token = request.getParameter(\"X-ACCESS-TOKEN\");\n        }\n        return token;\n    }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "token"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "token",
+            "replacement": "auth"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "token",
+            "replacement": "accessToken"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "token",
+            "replacement": "authorization"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q08.png"
+  },
+  {
+    "question_id": "Q09",
+    "sample_id": "009",
+    "case": "TermuxTerminalSessionActivityClient",
+    "source_path": "Termux-app/app/src/main/java/com/termux/app/terminal/TermuxTerminalSessionActivityClient.java",
+    "purpose": "This method switches the application to a selected Termux terminal session. It obtains the service, looks up the session by position, and makes the underlying terminal session current when found.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public void switchToSession(int index) {\n        TermuxService service = mActivity.getTermuxService();\n        if (service == null) return;\n\n        TermuxSession termuxSession = service.getTermuxSession(index);\n        if (termuxSession != null)\n            setCurrentSession(termuxSession.getTerminalSession());\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "service",
+      "index"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "service",
+            "replacement": "termuxService"
+          },
+          {
+            "original": "index",
+            "replacement": "currentIndex"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "service",
+            "replacement": "service",
+            "note": "unchanged"
+          },
+          {
+            "original": "index",
+            "replacement": "id"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "service",
+            "replacement": "termuxSession1"
+          },
+          {
+            "original": "index",
+            "replacement": "termuxSession2"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q09.png"
+  },
+  {
+    "question_id": "Q10",
+    "sample_id": "010",
+    "case": "BiliBiliSearchInfo",
+    "source_path": "alist-tvbox/src/main/java/cn/har01d/alist_tvbox/dto/bili/BiliBiliSearchInfo.java",
+    "purpose": "This nested data class stores metadata describing a video search result. Its fields include platform identifiers, descriptive text, an image reference, duration information, and a play total.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Data\n    public static class Video {\n        private String bvid;\n        private String author;\n        private String title;\n        private String description;\n        private String pic;\n        private String length;\n        private int play;\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "pic",
+      "play"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "pic",
+            "replacement": "src"
+          },
+          {
+            "original": "play",
+            "replacement": "offset"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "pic",
+            "replacement": "picture"
+          },
+          {
+            "original": "play",
+            "replacement": "playCount"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "pic",
+            "replacement": "string"
+          },
+          {
+            "original": "play",
+            "replacement": "anInt"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q10.png"
+  },
+  {
+    "question_id": "Q11",
+    "sample_id": "011",
+    "case": "CalculateAverage_charlibot",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_charlibot.java",
+    "purpose": "This method converts parallel city and measurement arrays into a map. It decodes each populated city entry and associates the resulting city name with its measurement.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "public HashMap<String, Measurement> toMap() {\n            HashMap<String, Measurement> hashMap = new HashMap<>();\n            for (int mapIndex = 0; mapIndex < cities.length; mapIndex++) {\n                byte[] cityArray = cities[mapIndex];\n                Measurement measurement = measurements[mapIndex];\n                if (measurement != null) {\n                    int length = cityArray[0];\n                    String city = new String(cityArray, 1, length, StandardCharsets.UTF_8);\n                    hashMap.put(city, measurement);\n                }\n            }\n            return hashMap;\n        }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "hashMap"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "hashMap",
+            "replacement": "stringMeasurementHashMap"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "hashMap",
+            "replacement": "map"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "hashMap",
+            "replacement": "cityMeasurementMap"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q11.png"
+  },
+  {
+    "question_id": "Q12",
+    "sample_id": "012",
+    "case": "KeepAliveLockProvider",
+    "source_path": "ShedLock/shedlock-core/src/main/java/net/javacrumbs/shedlock/support/KeepAliveLockProvider.java",
+    "purpose": "This constructor initializes the timing state for a keep-alive lock. It schedules periodic lock-extension work at half of the configured maximum lock duration.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "private KeepAliveLock(\n                LockConfiguration lockConfiguration, SimpleLock lock, ScheduledExecutorService executorService) {\n            super(lockConfiguration);\n            this.lock = lock;\n            this.lockExtensionPeriod = lockConfiguration.getLockAtMostFor().dividedBy(2);\n            this.remainingLockAtLeastFor = lockConfiguration.getLockAtLeastFor();\n            this.currentLockAtMostUntil = lockConfiguration.getLockAtMostUntil();\n\n            long extensionPeriodMs = lockExtensionPeriod.toMillis();\n            this.future = executorService.scheduleAtFixedRate(\n                    this::extendForNextPeriod, extensionPeriodMs, extensionPeriodMs, MILLISECONDS);\n        }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "extensionPeriodMs"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "extensionPeriodMs",
+            "replacement": "lockExtensionPeriod"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "extensionPeriodMs",
+            "replacement": "future1"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "extensionPeriodMs",
+            "replacement": "extensionPeriodMilliseconds"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q12.png"
+  },
+  {
+    "question_id": "Q13",
+    "sample_id": "013",
+    "case": "SoundcloudSuggestionExtractor",
+    "source_path": "NewPipeExtractor/extractor/src/main/java/org/schabi/newpipe/extractor/services/soundcloud/extractors/SoundcloudSuggestionExtractor.java",
+    "purpose": "This method requests query suggestions from SoundCloud's search API. It parses the returned JSON collection and extracts each suggestion string into a list.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Override\n    public List<String> suggestionList(final String query) throws IOException,\n            ExtractionException {\n        final List<String> suggestions = new ArrayList<>();\n        final Downloader dl = NewPipe.getDownloader();\n        final String url = SOUNDCLOUD_API_V2_URL + \"search/queries?q=\"\n                + Utils.encodeUrlUtf8(query) + \"&client_id=\" + SoundcloudParsingHelper.clientId()\n                + \"&limit=10\";\n        final String response = dl.get(url, getExtractorLocalization()).responseBody();\n\n        try {\n            final JsonArray collection = JsonParser.object().from(response).getArray(\"collection\");\n            for (final Object suggestion : collection) {\n                if (suggestion instanceof JsonObject) {\n                    suggestions.add(((JsonObject) suggestion).getString(\"query\"));\n                }\n            }\n\n            return suggestions;\n        } catch (final JsonParserException e) {\n            throw new ParsingException(\"Could not parse json response\", e);\n        }\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "dl",
+      "suggestion"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "dl",
+            "replacement": "downloader"
+          },
+          {
+            "original": "suggestion",
+            "replacement": "element"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "dl",
+            "replacement": "downloader"
+          },
+          {
+            "original": "suggestion",
+            "replacement": "query1"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "dl",
+            "replacement": "downloader"
+          },
+          {
+            "original": "suggestion",
+            "replacement": "suggestionItem"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q13.png"
+  },
+  {
+    "question_id": "Q14",
+    "sample_id": "014",
+    "case": "ProcessInstanceDirectExecutionMigrationExternalWorkerTest",
+    "source_path": "flowable-engine/modules/flowable-engine/src/test/java/org/flowable/engine/test/api/runtime/migration/ProcessInstanceDirectExecutionMigrationExternalWorkerTest.java",
+    "purpose": "This test code waits for asynchronous processing when required and then queries the generated external-worker jobs. It verifies that the resulting job has the expected process definition, element, and topic configuration.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "if (async) {\n            // Start the async executor to create the external worker job\n            JobTestHelper.waitForJobExecutorToProcessAllJobs(processEngineConfiguration, managementService, 1000L, 500L, true);\n        }\n\n        List<ExternalWorkerJob> externalWorkerJobs = managementService.createExternalWorkerJobQuery()\n                .list();\n        assertThat(externalWorkerJobs)\n                .extracting(ExternalWorkerJob::getProcessDefinitionId, ExternalWorkerJob::getElementId, ExternalWorkerJob::getJobHandlerConfiguration)\n                .containsExactly(tuple(version1ProcessDef.getId(), \"externalWorker1Id\", \"topic1\"));",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "externalWorkerJobs"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "externalWorkerJobs",
+            "replacement": "externalWorkerJobList"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "externalWorkerJobs",
+            "replacement": "assertThat"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "externalWorkerJobs",
+            "replacement": "jobs"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q14.png"
+  },
+  {
+    "question_id": "Q15",
+    "sample_id": "015",
+    "case": "SimpleEventHandler",
+    "source_path": "disruptor/src/perftest/java/com/lmax/disruptor/immutable/SimpleEventHandler.java",
+    "purpose": "This event-handler method receives an event together with a timestamp and a boolean flag. It adds the event's counter value to the handler's accumulated counter.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Override\n    public void onEvent(final SimpleEvent arg0, final long arg1, final boolean arg2) throws Exception\n    {\n        counter += arg0.getCounter();\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "arg0",
+      "arg1",
+      "arg2"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "arg0",
+            "replacement": "e"
+          },
+          {
+            "original": "arg1",
+            "replacement": "index"
+          },
+          {
+            "original": "arg2",
+            "replacement": "finished"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "arg0",
+            "replacement": "simpleEvent"
+          },
+          {
+            "original": "arg1",
+            "replacement": "timestamp"
+          },
+          {
+            "original": "arg2",
+            "replacement": "isFlagged"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "arg0",
+            "replacement": "counter"
+          },
+          {
+            "original": "arg1",
+            "replacement": "l"
+          },
+          {
+            "original": "arg2",
+            "replacement": "b"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q15.png"
+  },
+  {
+    "question_id": "Q16",
+    "sample_id": "016",
+    "case": "MySqlSnapshotSplitAssignerTest",
+    "source_path": "flink-cdc/flink-cdc-connect/flink-cdc-source-connectors/flink-connector-mysql-cdc/src/test/java/org/apache/flink/cdc/connectors/mysql/source/assigners/MySqlSnapshotSplitAssignerTest.java",
+    "purpose": "This unit test checks snapshot-split assignment for a table with a composite primary key. It computes the actual splits and compares them with the three expected split boundaries.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Test\n    void testAssignCompositePkTableSplitsEvenlyWithChunkKeyColumn() {\n        List<String> expected =\n                Arrays.asList(\n                        \"evenly_shopping_cart null [105]\",\n                        \"evenly_shopping_cart [105] [109]\",\n                        \"evenly_shopping_cart [109] null\");\n        List<String> splits =\n                getTestAssignSnapshotSplits(\n                        customerDatabase,\n                        4,\n                        CHUNK_KEY_EVEN_DISTRIBUTION_FACTOR_UPPER_BOUND.defaultValue(),\n                        CHUNK_KEY_EVEN_DISTRIBUTION_FACTOR_LOWER_BOUND.defaultValue(),\n                        new String[] {\"evenly_shopping_cart\"},\n                        \"product_no\");\n        assertThat(splits).isEqualTo(expected);\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "expected",
+      "splits"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "expected",
+            "replacement": "expectedSplits"
+          },
+          {
+            "original": "splits",
+            "replacement": "actualSplits"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "expected",
+            "replacement": "equalTo"
+          },
+          {
+            "original": "splits",
+            "replacement": "assertThat"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "expected",
+            "replacement": "list"
+          },
+          {
+            "original": "splits",
+            "replacement": "actual"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q16.png"
+  },
+  {
+    "question_id": "Q17",
+    "sample_id": "017",
+    "case": "OperationSavedDO",
+    "source_path": "Chat2DB/chat2db-server/chat2db-server-domain/chat2db-server-domain-repository/src/main/java/ai/chat2db/server/domain/repository/entity/OperationSavedDO.java",
+    "purpose": "This data object declares audit timestamps for creation and modification. It also stores the identifier of the associated data-source connection.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "/**\n     * creation time\n     */\n    private LocalDateTime gmtCreate;\n\n    /**\n     * modified time\n     */\n    private LocalDateTime gmtModified;\n\n    /**\n     * Data source connection ID\n     */\n    private Long dataSourceId;",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "gmtCreate",
+      "gmtModified",
+      "dataSourceId"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "gmtCreate",
+            "replacement": "creationTime"
+          },
+          {
+            "original": "gmtModified",
+            "replacement": "modifiedTime"
+          },
+          {
+            "original": "dataSourceId",
+            "replacement": "dataSourceConnectionId"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "gmtCreate",
+            "replacement": "localDateTime"
+          },
+          {
+            "original": "gmtModified",
+            "replacement": "localDateTime1"
+          },
+          {
+            "original": "dataSourceId",
+            "replacement": "aLong"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "gmtCreate",
+            "replacement": "ts"
+          },
+          {
+            "original": "gmtModified",
+            "replacement": "gmtTime"
+          },
+          {
+            "original": "dataSourceId",
+            "replacement": "id"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q17.png"
+  },
+  {
+    "question_id": "Q18",
+    "sample_id": "018",
+    "case": "Anagrams",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/strings/Anagrams.java",
+    "purpose": "This method determines whether two normalized strings are anagrams. It counts characters from the first string, decrements those counts while scanning the second, and succeeds only when every count returns to zero.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public static boolean areAnagramsUsingHashMap(String s, String t) {\n        s = s.toLowerCase().replaceAll(\"[^a-z]\", \"\");\n        t = t.toLowerCase().replaceAll(\"[^a-z]\", \"\");\n        if (s.length() != t.length()) {\n            return false;\n        }\n        HashMap<Character, Integer> charCountMap = new HashMap<>();\n        for (char c : s.toCharArray()) {\n            charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);\n        }\n        for (char c : t.toCharArray()) {\n            if (!charCountMap.containsKey(c) || charCountMap.get(c) == 0) {\n                return false;\n            }\n            charCountMap.put(c, charCountMap.get(c) - 1);\n        }\n        return charCountMap.values().stream().allMatch(count -> count == 0);\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "s",
+      "t",
+      "c"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "s",
+            "replacement": "ms"
+          },
+          {
+            "original": "t",
+            "replacement": "map"
+          },
+          {
+            "original": "c",
+            "replacement": "c",
+            "note": "unchanged"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "s",
+            "replacement": "charArray"
+          },
+          {
+            "original": "t",
+            "replacement": "charArray1"
+          },
+          {
+            "original": "c",
+            "replacement": "put"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "s",
+            "replacement": "firstString"
+          },
+          {
+            "original": "t",
+            "replacement": "secondString"
+          },
+          {
+            "original": "c",
+            "replacement": "character"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q18.png"
+  },
+  {
+    "question_id": "Q19",
+    "sample_id": "019",
+    "case": "IgnoreExceptionHandlerTest",
+    "source_path": "disruptor/src/test/java/com/lmax/disruptor/IgnoreExceptionHandlerTest.java",
+    "purpose": "This unit test verifies that the ignore-exception handler accepts an event-processing exception without propagating it. It constructs an exception and test event, invokes the handler, and completes successfully if no exception escapes.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Test\n    public void shouldHandleAndIgnoreException()\n    {\n        final Exception ex = new Exception();\n        final TestEvent event = new TestEvent();\n\n        ExceptionHandler<Object> exceptionHandler = new IgnoreExceptionHandler();\n        exceptionHandler.handleEventException(ex, 0L, event);\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "ex",
+      "event"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "ex",
+            "replacement": "handleEventException"
+          },
+          {
+            "original": "event",
+            "replacement": "handleEventException1"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "ex",
+            "replacement": "exception"
+          },
+          {
+            "original": "event",
+            "replacement": "testEvent"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "ex",
+            "replacement": "ex",
+            "note": "unchanged"
+          },
+          {
+            "original": "event",
+            "replacement": "testt"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q19.png"
+  },
+  {
+    "question_id": "Q20",
+    "sample_id": "020",
+    "case": "BoardPath",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/dynamicprogramming/BoardPath.java",
+    "purpose": "This dynamic-programming method counts the possible board paths from a starting position to an ending position using dice rolls from one through six. It fills a storage array backward from the destination and returns the count recorded for the requested starting position.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public static int bpIS(int curr, int end, int[] strg) {\n        strg[end] = 1;\n        for (int i = end - 1; i >= 0; i--) {\n            int count = 0;\n            for (int dice = 1; dice <= 6 && dice + i <= end; dice++) {\n                count += strg[i + dice];\n            }\n            strg[i] = count;\n        }\n        return strg[curr];\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "dice",
+      "curr",
+      "strg",
+      "count"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "dice",
+            "replacement": "diceFace"
+          },
+          {
+            "original": "curr",
+            "replacement": "current"
+          },
+          {
+            "original": "strg",
+            "replacement": "cache"
+          },
+          {
+            "original": "count",
+            "replacement": "pathCount"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "dice",
+            "replacement": "c"
+          },
+          {
+            "original": "curr",
+            "replacement": "start"
+          },
+          {
+            "original": "strg",
+            "replacement": "params"
+          },
+          {
+            "original": "count",
+            "replacement": "j"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "dice",
+            "replacement": "i2"
+          },
+          {
+            "original": "curr",
+            "replacement": "i1"
+          },
+          {
+            "original": "strg",
+            "replacement": "string"
+          },
+          {
+            "original": "count",
+            "replacement": "i3"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q20.png"
+  },
+  {
+    "question_id": "Q21",
+    "sample_id": "021",
+    "case": "SqlBuilder",
+    "source_path": "Chat2DB/chat2db-server/chat2db-spi/src/main/java/ai/chat2db/spi/SqlBuilder.java",
+    "purpose": "This interface method defines the operation for generating table-level DML SQL from table metadata and a requested operation type. Implementations use the type to select an INSERT, UPDATE, DELETE, or SELECT statement template.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "String getTableDmlSql(T table, String type);",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "type"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "type",
+            "replacement": "transactionType"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "type",
+            "replacement": "s"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "type",
+            "replacement": "scheName"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q21.png"
+  },
+  {
+    "question_id": "Q22",
+    "sample_id": "022",
+    "case": "SubsetSum",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/dynamicprogramming/SubsetSum.java",
+    "purpose": "This method determines whether any subset of an integer array can produce a requested sum. It updates a Boolean reachability array backward for each element so that every input value is used at most once.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public static boolean subsetSum(int[] arr, int sum) {\n        int n = arr.length;\n\n        // Initialize a single array to store the possible sums\n        boolean[] isSum = new boolean[sum + 1];\n\n        // Mark isSum[0] = true since a sum of 0 is always possible with 0 elements\n        isSum[0] = true;\n\n        // Iterate through each Element in the array\n        for (int i = 0; i < n; i++) {\n            // Traverse the isSum array backwards to prevent overwriting values\n            for (int j = sum; j >= arr[i]; j--) {\n                isSum[j] = isSum[j] || isSum[j - arr[i]];\n            }\n        }\n        return isSum[sum];\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "arr",
+      "n"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "arr",
+            "replacement": "array"
+          },
+          {
+            "original": "n",
+            "replacement": "length"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "arr",
+            "replacement": "ints"
+          },
+          {
+            "original": "n",
+            "replacement": "length"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "arr",
+            "replacement": "self"
+          },
+          {
+            "original": "n",
+            "replacement": "len"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q22.png"
+  },
+  {
+    "question_id": "Q23",
+    "sample_id": "023",
+    "case": "IndexTemplate",
+    "source_path": "alist-tvbox/src/main/java/cn/har01d/alist_tvbox/entity/IndexTemplate.java",
+    "purpose": "This persistence entity stores an index-template configuration, including its owning site, template data, scheduling flags, delay, and timestamps. Its annotations provide generated identifiers, database column definitions, and generated accessors.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Getter\n@Setter\n@ToString\n@RequiredArgsConstructor\n@Entity\n@TableGenerator(name = \"tableGenerator\", table = \"id_generator\", pkColumnName = \"entity_name\", valueColumnName = \"next_id\", allocationSize = 1)\npublic class IndexTemplate {\n    @Id\n    @GeneratedValue(strategy = GenerationType.TABLE, generator = \"tableGenerator\")\n    private Integer id;\n    private Integer siteId;\n    private String name;\n    @Column(columnDefinition = \"TEXT\")\n    private String data;\n    private Integer sleep;\n    @Column(columnDefinition = \"BOOLEAN DEFAULT FALSE\")\n    private boolean scheduled;\n    @Column(columnDefinition = \"BOOLEAN DEFAULT FALSE\")\n    private boolean scrape;\n    private String scheduleTime;\n    private Instant createdTime;",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "sleep",
+      "scheduled",
+      "scrape"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "sleep",
+            "replacement": "value"
+          },
+          {
+            "original": "scheduled",
+            "replacement": "ok"
+          },
+          {
+            "original": "scrape",
+            "replacement": "ok"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "sleep",
+            "replacement": "sleepTime"
+          },
+          {
+            "original": "scheduled",
+            "replacement": "isScheduled"
+          },
+          {
+            "original": "scrape",
+            "replacement": "isScrape"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "sleep",
+            "replacement": "integer"
+          },
+          {
+            "original": "scheduled",
+            "replacement": "aBoolean"
+          },
+          {
+            "original": "scrape",
+            "replacement": "aBoolean1"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q23.png"
+  },
+  {
+    "question_id": "Q24",
+    "sample_id": "024",
+    "case": "ValueBatchPublisher",
+    "source_path": "disruptor/src/perftest/java/com/lmax/disruptor/support/ValueBatchPublisher.java",
+    "purpose": "This runnable publishes value events to a Disruptor ring buffer in batches after synchronizing on a barrier. For each claimed sequence range, it populates the events, publishes the range, and wraps any failure in a runtime exception.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Override\n    public void run()\n    {\n        try\n        {\n            cyclicBarrier.await();\n\n            for (long i = 0; i < iterations; i += batchSize)\n            {\n                long hi = ringBuffer.next(batchSize);\n                long lo = hi - (batchSize - 1);\n                for (long l = lo; l <= hi; l++)\n                {\n                    ValueEvent event = ringBuffer.get(l);\n                    event.setValue(l);\n                }\n                ringBuffer.publish(lo, hi);\n            }\n        }\n        catch (Exception ex)\n        {\n            throw new RuntimeException(ex);\n        }\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "hi",
+      "lo",
+      "l"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "hi",
+            "replacement": "highIndex"
+          },
+          {
+            "original": "lo",
+            "replacement": "lowIndex"
+          },
+          {
+            "original": "l",
+            "replacement": "index"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "hi",
+            "replacement": "hi",
+            "note": "unchanged"
+          },
+          {
+            "original": "lo",
+            "replacement": "hi"
+          },
+          {
+            "original": "l",
+            "replacement": "lo"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "hi",
+            "replacement": "next"
+          },
+          {
+            "original": "lo",
+            "replacement": "publish"
+          },
+          {
+            "original": "l",
+            "replacement": "setValue"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q24.png"
+  },
+  {
+    "question_id": "Q25",
+    "sample_id": "025",
+    "case": "CalculateAverage_anestoruk",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_anestoruk.java",
+    "purpose": "This method chooses a file-processing chunk size using the input size and available CPU count. For large files, it increases the divisor until the resulting chunk fits below the integer-size limit; small files are returned as a single chunk.",
+    "original_section_label": "Original snippet · highlighted identifier would be refactored",
+    "original_code": "private static long calculateChunkSize(long fileSize) {\n        int divisor = cpus;\n        long chunkSize;\n        if (fileSize > 10_000) {\n            while ((chunkSize = fileSize / divisor) > Integer.MAX_VALUE - 512) {\n                divisor *= 2;\n            }\n            return chunkSize;\n        }\n        return fileSize;\n    }",
+    "target_intro": "Original identifier:",
+    "target_identifiers": [
+      "divisor"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "divisor",
+            "replacement": "cpus1"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "divisor",
+            "replacement": "count"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "divisor",
+            "replacement": "numberOfCpus"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q25.png"
+  },
+  {
+    "question_id": "Q26",
+    "sample_id": "026",
+    "case": "PowderSnowBlockMixin",
+    "source_path": "Arclight/arclight-common/src/main/java/io/izzel/arclight/common/mixin/core/world/level/block/PowderSnowBlockMixin.java",
+    "purpose": "This injected callback checks a block-change event before a powder-snow block destroys itself while processing an entity. If the event is rejected, it cancels the enclosing operation through the callback information object.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "@Inject(method = \"entityInside\", cancellable = true, at = @At(value = \"INVOKE\", target = \"Lnet/minecraft/world/level/Level;destroyBlock(Lnet/minecraft/core/BlockPos;Z)Z\"))\n    private void arclight$entityChangeBlock(BlockState p_154263_, Level p_154264_, BlockPos pos, Entity entity, CallbackInfo ci) {\n        if (!CraftEventFactory.callEntityChangeBlockEvent(entity, pos, Blocks.AIR.defaultBlockState())) {\n            ci.cancel();\n        }\n    }\n}",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "p_154263_",
+      "p_154264_",
+      "pos",
+      "ci"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "p_154263_",
+            "replacement": "blockState"
+          },
+          {
+            "original": "p_154264_",
+            "replacement": "level"
+          },
+          {
+            "original": "pos",
+            "replacement": "blockPosition"
+          },
+          {
+            "original": "ci",
+            "replacement": "callbackInfo"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "p_154263_",
+            "replacement": "state"
+          },
+          {
+            "original": "p_154264_",
+            "replacement": "level"
+          },
+          {
+            "original": "pos",
+            "replacement": "pos",
+            "note": "unchanged"
+          },
+          {
+            "original": "ci",
+            "replacement": "callbackInfo"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "p_154263_",
+            "replacement": "blockState"
+          },
+          {
+            "original": "p_154264_",
+            "replacement": "level"
+          },
+          {
+            "original": "pos",
+            "replacement": "callEntityChangeBlockEvent"
+          },
+          {
+            "original": "ci",
+            "replacement": "cancel"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q26.png"
+  },
+  {
+    "question_id": "Q27",
+    "sample_id": "027",
+    "case": "CalculateAverage_gamlerhart",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_gamlerhart.java",
+    "purpose": "These class-level constants configure the input file and Java Vector API helpers used by the measurement parser. They define the preferred byte-vector species, reusable vectors and masks, vector length, delimiter vector, and byte order.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public class CalculateAverage_gamlerhart {\n\n    private static final String FILE = \"./measurements.txt\";\n    final static VectorSpecies<Byte> byteVec = ByteVector.SPECIES_PREFERRED;\n    final static Vector<Byte> zero = byteVec.zero();\n    final static int vecLen = byteVec.length();\n    final static Vector<Byte> semiColon = byteVec.broadcast(';');\n    final static VectorMask<Byte> allTrue = byteVec.maskAll(true);\n    final static ValueLayout.OfInt INT_UNALIGNED_BIG_ENDIAN = ValueLayout.JAVA_INT_UNALIGNED.withOrder(ByteOrder.BIG_ENDIAN);",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "FILE",
+      "byteVec",
+      "zero",
+      "vecLen",
+      "semiColon",
+      "allTrue"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "FILE",
+            "replacement": "measureName"
+          },
+          {
+            "original": "byteVec",
+            "replacement": "specSpecies"
+          },
+          {
+            "original": "zero",
+            "replacement": "maskViv"
+          },
+          {
+            "original": "vecLen",
+            "replacement": "length"
+          },
+          {
+            "original": "semiColon",
+            "replacement": "broad"
+          },
+          {
+            "original": "allTrue",
+            "replacement": "mask"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "FILE",
+            "replacement": "MEASUREMENTS_TXT"
+          },
+          {
+            "original": "byteVec",
+            "replacement": "SPECIES_PREFERRED"
+          },
+          {
+            "original": "zero",
+            "replacement": "ZERO"
+          },
+          {
+            "original": "vecLen",
+            "replacement": "LENGTH"
+          },
+          {
+            "original": "semiColon",
+            "replacement": "BROADCAST"
+          },
+          {
+            "original": "allTrue",
+            "replacement": "BYTE_VECTOR_MASK"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "FILE",
+            "replacement": "FILE_PATH"
+          },
+          {
+            "original": "byteVec",
+            "replacement": "byteVector"
+          },
+          {
+            "original": "zero",
+            "replacement": "zeroVector"
+          },
+          {
+            "original": "vecLen",
+            "replacement": "vectorLength"
+          },
+          {
+            "original": "semiColon",
+            "replacement": "semiColonVector"
+          },
+          {
+            "original": "allTrue",
+            "replacement": "allTrueMask"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      }
+    ],
+    "image_file": "Q27.png"
+  },
+  {
+    "question_id": "Q28",
+    "sample_id": "028",
+    "case": "CalculateAverage_gamlerhart",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_gamlerhart.java",
+    "purpose": "This method transfers entries from a compact private hash table into a sorted result map. It decodes each packed key, reconstructs the station name, and merges the stored minimum, maximum, sum, and count with any existing aggregate.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "public void fillMerge(MemorySegment file, TreeMap<String, ResultRow> treeMap) {\n            for (int i = 0; i < keys.length; i++) {\n                var ji = i;\n                long keyE = keys[ji];\n                if (keyE != 0) {\n                    long keyPos = (keyE & MASK_POS) >> SHIFT_POS;\n                    int keyLen = (int) (keyE & MASK_LEN);\n                    byte[] keyBytes = new byte[keyLen];\n                    MemorySegment.copy(file, JAVA_BYTE, keyPos, keyBytes, 0, keyLen);\n                    var key = new String(keyBytes);\n                    var vE = values[ji];\n                    var min = vE.min;\n                    var max = vE.max;\n                    var sum = vE.sum;\n                    var count = vE.count;\n                    treeMap.compute(key, (k, e) -> {\n                        if (e == null) {\n                            return new ResultRow(min, max, sum, count);\n                        }\n                        else {\n                            return new ResultRow(Math.min(e.min, min), Math.max(e.max, max), e.sum + sum, e.count + count);\n                        }\n                    });\n                }\n            }\n        }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "file",
+      "treeMap",
+      "ji",
+      "keyE",
+      "keyPos",
+      "keyLen",
+      "vE"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "file",
+            "replacement": "copy"
+          },
+          {
+            "original": "treeMap",
+            "replacement": "compute"
+          },
+          {
+            "original": "ji",
+            "replacement": "i1"
+          },
+          {
+            "original": "keyE",
+            "replacement": "key1"
+          },
+          {
+            "original": "keyPos",
+            "replacement": "keyPose"
+          },
+          {
+            "original": "keyLen",
+            "replacement": "copy1"
+          },
+          {
+            "original": "vE",
+            "replacement": "value"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "file",
+            "replacement": "memorySegment"
+          },
+          {
+            "original": "treeMap",
+            "replacement": "resultMap"
+          },
+          {
+            "original": "ji",
+            "replacement": "index"
+          },
+          {
+            "original": "keyE",
+            "replacement": "keyElement"
+          },
+          {
+            "original": "keyPos",
+            "replacement": "keyPosition"
+          },
+          {
+            "original": "keyLen",
+            "replacement": "keyLength"
+          },
+          {
+            "original": "vE",
+            "replacement": "valueElement"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "file",
+            "replacement": "se"
+          },
+          {
+            "original": "treeMap",
+            "replacement": "map"
+          },
+          {
+            "original": "ji",
+            "replacement": "j"
+          },
+          {
+            "original": "keyE",
+            "replacement": "key"
+          },
+          {
+            "original": "keyPos",
+            "replacement": "ji"
+          },
+          {
+            "original": "keyLen",
+            "replacement": "ji"
+          },
+          {
+            "original": "vE",
+            "replacement": "ji"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      }
+    ],
+    "image_file": "Q28.png"
+  },
+  {
+    "question_id": "Q29",
+    "sample_id": "029",
+    "case": "Dijkstra",
+    "source_path": "TheAlgorithms-Java/src/main/java/com/thealgorithms/others/Dijkstra.java",
+    "purpose": "This constructor initializes a graph edge by storing its two endpoint names and distance. The resulting edge record is later used to construct the graph processed by Dijkstra's algorithm.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "Edge(String v1, String v2, int dist) {\n            this.v1 = v1;\n            this.v2 = v2;\n            this.dist = dist;\n        }\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "v1",
+      "v2",
+      "dist"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "v1",
+            "replacement": "s"
+          },
+          {
+            "original": "v2",
+            "replacement": "s1"
+          },
+          {
+            "original": "dist",
+            "replacement": "i"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "v1",
+            "replacement": "vertex1"
+          },
+          {
+            "original": "v2",
+            "replacement": "vertex2"
+          },
+          {
+            "original": "dist",
+            "replacement": "distance"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      },
+      {
+        "label": "D",
+        "mappings": [
+          {
+            "original": "v1",
+            "replacement": "v1",
+            "note": "unchanged"
+          },
+          {
+            "original": "v2",
+            "replacement": "v2",
+            "note": "unchanged"
+          },
+          {
+            "original": "dist",
+            "replacement": "p"
+          }
+        ]
+      }
+    ],
+    "image_file": "Q29.png"
+  },
+  {
+    "question_id": "Q30",
+    "sample_id": "030",
+    "case": "CalculateAverage_MahmoudFawzyKhalil",
+    "source_path": "1brc/src/main/java/dev/morling/onebrc/CalculateAverage_MahmoudFawzyKhalil.java",
+    "purpose": "This method combines two maps of station measurement aggregates. It merges entries present in both maps with the aggregate-combination operation and then copies entries found only in the second map.",
+    "original_section_label": "Original snippet · highlighted identifiers would be refactored",
+    "original_code": "private static Map<String, MeasurementAggregate> combine(Map<String, MeasurementAggregate> xs, Map<String, MeasurementAggregate> ys) {\n        Map<String, MeasurementAggregate> result = new HashMap<>();\n\n        for (var key : xs.keySet()) {\n            var m1 = xs.get(key);\n            var m2 = ys.get(key);\n            var combined = (m2 == null) ? m1 : (m1 == null) ? m2 : m1.combine(m2);\n            result.put(key, combined);\n        }\n\n        for (var key : ys.keySet())\n            result.putIfAbsent(key, ys.get(key));\n        return result;\n    }",
+    "target_intro": "Original identifiers:",
+    "target_identifiers": [
+      "xs",
+      "ys",
+      "result",
+      "m1",
+      "m2",
+      "combined"
+    ],
+    "prompt": "Which replacement set most improves your comprehension of this code segment?",
+    "choices": [
+      {
+        "label": "A",
+        "mappings": [
+          {
+            "original": "xs",
+            "replacement": "ms"
+          },
+          {
+            "original": "ys",
+            "replacement": "x"
+          },
+          {
+            "original": "result",
+            "replacement": "ms"
+          },
+          {
+            "original": "m1",
+            "replacement": "m1",
+            "note": "unchanged"
+          },
+          {
+            "original": "m2",
+            "replacement": "m2",
+            "note": "unchanged"
+          },
+          {
+            "original": "combined",
+            "replacement": "result"
+          }
+        ]
+      },
+      {
+        "label": "B",
+        "mappings": [
+          {
+            "original": "xs",
+            "replacement": "firstMap"
+          },
+          {
+            "original": "ys",
+            "replacement": "secondMap"
+          },
+          {
+            "original": "result",
+            "replacement": "resultMap"
+          },
+          {
+            "original": "m1",
+            "replacement": "firstMeasurement"
+          },
+          {
+            "original": "m2",
+            "replacement": "secondMeasurement"
+          },
+          {
+            "original": "combined",
+            "replacement": "combinedMeasurement"
+          }
+        ]
+      },
+      {
+        "label": "C",
+        "mappings": [
+          {
+            "original": "xs",
+            "replacement": "m3"
+          },
+          {
+            "original": "ys",
+            "replacement": "m4"
+          },
+          {
+            "original": "result",
+            "replacement": "put"
+          },
+          {
+            "original": "m1",
+            "replacement": "measurementAggregate1"
+          },
+          {
+            "original": "m2",
+            "replacement": "measurementAggregate"
+          },
+          {
+            "original": "combined",
+            "replacement": "put1"
+          }
+        ]
+      },
+      {
+        "label": "D",
+        "text": "None of the above; no proposed renaming improves comprehension beyond the original."
+      }
+    ],
+    "image_file": "Q30.png"
+  }
+]
